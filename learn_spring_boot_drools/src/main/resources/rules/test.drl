@@ -1,0 +1,9 @@
+package rules;
+dialect  "mvel"
+
+rule "test"
+    when
+      $d : Double();
+    then
+       System.out.println($d);
+end

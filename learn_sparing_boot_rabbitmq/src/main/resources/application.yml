@@ -1,0 +1,34 @@
+server:
+  port: 8089
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  banner:
+    charset: UTF-8
+  http:
+     encoding:
+       charset: UTF-8
+       enabled: true
+       force: true
+  messages:
+    encoding: UTF-8
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/lin?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=true
+    username: root
+    password: 123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: spring-boot-rabbimq
+  rabbitmq:
+# 这里不能配置 本地ip 地址，如果要配置ip地址会启动报错
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+logging:
+  level:
+    org.springframework.web: trace
+
+
