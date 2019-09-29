@@ -15,6 +15,9 @@
 		<module>learn_spring_boot_mybatis_datasource</module>
 		<module>neo4j-spring-boot</module>
 		<module>learn_sparing_boot_rabbitmq</module>
+		<module>learn-spring-boot-cache</module>
+		<module>learn-spring-boot-elastic</module>
+        <module>learn-spring-boot-security</module>
 	</modules>
 
 	<parent>
@@ -39,6 +42,7 @@
 		<javax.persistence.version>2.2</javax.persistence.version>
 		<spring.data.jpa.version>2.1.8.RELEASE</spring.data.jpa.version>
 		<junit.version>4.12</junit.version>
+		<!--<thymeleaf-extras-springsecurity.version>3.0.4.RELEASE</thymeleaf-extras-springsecurity.version>-->
 	</properties>
 
 	<!--dependencies 即使在子项目中不写该依赖项，那么子项目仍然会从父项目中继承该依赖项（全部继承）
@@ -77,6 +81,11 @@
 			<version>${thymeleaf.layout.version}</version>
 		</dependency>
 
+		<!--<dependency>-->
+			<!--<groupId>org.thymeleaf.extras</groupId>-->
+			<!--<artifactId>thymeleaf-extras-springsecurity5</artifactId>-->
+			<!--<version>${thymeleaf-extras-springsecurity.version}</version>-->
+		<!--</dependency>-->
 
 		<dependency>
 			<groupId>org.springframework</groupId>

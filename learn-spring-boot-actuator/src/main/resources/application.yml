@@ -1,0 +1,51 @@
+spring:
+  banner:
+    charset: utf-8
+  http:
+   encoding:
+     charset: UTF-8
+     enabled: true
+     force: true
+  messages:
+    encoding: UTF-8
+  datasource:
+       url: jdbc:mysql://127.0.0.1:3306/lin?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=true
+       username: root
+       password: 123
+       driver-class-name: com.mysql.cj.jdbc.Driver
+
+# 打印SQL日志 ,键值对的形式 来配置
+#logging:
+#  level:
+#    org.learn.boot.cache.mapper: debug
+logging:
+  level:
+    root: info
+    org.mybatis: debug
+    java.sql: debug
+    org.springframework.web: trace
+server:
+  port: 8909
+management:
+  endpoints:
+     web:
+       exposure:
+         include: "*"
+         # 这里如果不排除 beans 那么 http://localhost:8909/actuator/beans 就可以访问
+         #开启暴露所有后利用http://localhost:8909/actuator可以查看此时actuator暴露的接口信息，
+         #此时利用http://localhost:8909/actuator/beans查看项目的Bean信息就会生效啦
+#         exclude: env,beans
+
+
+
+#打印配置报告
+#debug: true
+
+# 开驼峰命名发 者和编写代码配置的方式一样，随便选择那种
+#mybatis:
+#  configuration:
+#    map-underscore-to-camel-case: true
+info:
+  app:
+   id: hello
+   version: 1.0

@@ -1,0 +1,35 @@
+spring:
+  banner:
+    charset: utf-8
+  http:
+   encoding:
+     charset: UTF-8
+     enabled: true
+     force: true
+  messages:
+    encoding: UTF-8
+
+# 打印SQL日志 ,键值对的形式 来配置
+#logging:
+#  level:
+#    org.learn.boot.cache.mapper: debug
+server:
+  port: 8124
+
+
+eureka:
+  instance:
+  # eureka实例的主机名
+    hostname: eureka-server
+  client:
+  # 这个表示不把eureka本身注册到 注册中心去
+    register-with-eureka: false
+    # 不从 eureka 上获取服务的注册信息，因为本身是一个注册中心，不是向消费者那样提供一些信息
+    fetch-registry: false
+    #注册中心地址，如果不指定 它有默认值, 这里要写当前的端口号，如果不写的话就是默认的，
+    # 并且不覆盖默认的端口，eureka-server 会一直报 8761错误
+    service-url:
+      defaultZone: http://localhost:8124/eureka
+
+
+

@@ -12,12 +12,12 @@ import org.springframework.context.annotation.Configuration;
  * History:
  * @<version> 1.0
  */
-@Configuration
+//@Configuration
 public class RabbitConfig {
 
-  @Bean
-  public Queue queue(){
-   return new Queue("hello");
-  }
+//  @Bean
+//  public Queue queue(){
+//   return new Queue("hello");
+//  }
 
 }
