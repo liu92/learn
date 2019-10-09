@@ -42,6 +42,7 @@
 		<javax.persistence.version>2.2</javax.persistence.version>
 		<spring.data.jpa.version>2.1.8.RELEASE</spring.data.jpa.version>
 		<junit.version>4.12</junit.version>
+		<collections4.version>4.3</collections4.version>
 		<!--<thymeleaf-extras-springsecurity.version>3.0.4.RELEASE</thymeleaf-extras-springsecurity.version>-->
 	</properties>
 
@@ -186,13 +187,13 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-collections4</artifactId>
-			<version>4.3</version>
+			<version>${collections4.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>3.9</version>
+			<version>${commons.lang3.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>

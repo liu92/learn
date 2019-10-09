@@ -8,9 +8,10 @@
 		<version>1.0-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>org.learn.cloud</groupId>
 	<artifactId>learn-spring-cloud-consumer</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0-SNAPSHOT</version>
 	<name>learn-spring-cloud-consumer</name>
 	<description>Demo project for Spring Boot</description>
 
