@@ -19,8 +19,8 @@ public class BankService {
     /**
      * 这样就表示这个队列一有消息，下面这里就会接收到消息进行打印
      */
-    @RabbitListener(queues = "lin.news")
-    public void receiver(Bank bank){
-        System.out.println("收到消息："+ bank);
-    }
+//    @RabbitListener(queues = "lin.news")
+//    public void receiver(Bank bank){
+//        System.out.println("收到消息："+ bank);
+//    }
 }

@@ -1,0 +1,49 @@
+server:
+  port: 8452
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  banner:
+    charset: UTF-8
+  http:
+     encoding:
+       charset: UTF-8
+       enabled: true
+       force: true
+  messages:
+    encoding: UTF-8
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/lin?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=true
+    username: root
+    password: 123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: spring-boot-rocketmq
+
+
+logging:
+  level:
+    org.springframework.web: trace
+
+apache:
+  rocketmq:
+     producer:
+      producerGroup: Producer
+#      topic: server_to_producer
+     # 消费者配置
+     consumer:
+      pushConsumer: PushConsumer
+#      topic: server_to_consmer
+     namesrvAddr: 127.0.0.1:9876
+
+#apache:
+#  rocketmq:
+##消费者的配置
+#    consumer:
+#      pushConsumer: XiaourPushConsumer
+##生产者的配置
+#    producer:
+#      producerGroup: Xiaour
+##Nameserver的地址,这里配置你MQ安装的机器上的IP就好，我这里在本机安装的
+#    namesrvAddr: 127.0.0.1:9876

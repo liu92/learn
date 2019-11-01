@@ -1,6 +1,7 @@
 package org.learn.boot.datasource.mapper.test1;
 
 
+import org.apache.ibatis.annotations.Mapper;
 import org.learn.boot.datasource.entity.Bank;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
  * <version> 1.0
  * @author lin
  */
+@Mapper
 public interface Bank1Mapper {
     /**
      * 查询全部

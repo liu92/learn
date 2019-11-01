@@ -72,11 +72,12 @@ public class BankController {
         try {
             time1 = simpleDateFormat.parse(bankVo.getCreateTime());
             bank2.setCreateTime(time1);
+            bank2Mapper.insert(bank2);
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        bank2Mapper.insert(bank2);
+
     }
 
     /**

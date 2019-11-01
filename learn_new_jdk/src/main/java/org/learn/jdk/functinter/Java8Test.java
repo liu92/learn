@@ -31,6 +31,7 @@ public class Java8Test {
         System.out.println("10 / 5 = " + test.operate(10, 5, division));
 
 
+
     }
 
     interface  MathOperation{

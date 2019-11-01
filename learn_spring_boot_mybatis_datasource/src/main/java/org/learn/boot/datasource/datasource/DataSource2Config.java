@@ -4,7 +4,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
@@ -23,9 +25,11 @@ import javax.sql.DataSource;
  * @author lin
  */
 @Configuration
-@MapperScan(basePackages = "com.base.mapper.test2",sqlSessionTemplateRef = "test2SqlSessionTemplate")
+@MapperScan(basePackages = "org.learn.boot.datasource.mapper.test2",sqlSessionTemplateRef = "test2SqlSessionTemplate")
 public class DataSource2Config {
 
+    @Autowired
+    private DatasourceTest2 datasourceTest2;
     /**
      * @Description 创建DataSource
      * @param
@@ -35,9 +39,13 @@ public class DataSource2Config {
      * @Date 18:12 2019/3/24
      **/
     @Bean(name = "test2DataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.test2")
+//    @Value("spring.datasource.test2")
     public DataSource test2DataSource(){
-        return DataSourceBuilder.create().build();
+        return  DataSourceBuilder.create().url(datasourceTest2.getJdbcUrl()).
+                username(datasourceTest2.getUsername()).
+                password(datasourceTest2.getPassword()).
+                driverClassName(datasourceTest2.getDriverClassName()).build();
+//        return DataSourceBuilder.create().build();
     }
 
 

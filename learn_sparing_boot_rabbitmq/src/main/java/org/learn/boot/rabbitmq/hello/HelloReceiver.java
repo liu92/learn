@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * @ClassName: HelloReceiver
  * @Description: 消息接收者
  * @Author: lin
- * @Date: 2019/6/24 23:32
+ * @Date: 2019/3/24 23:32
  * History:
  * @<version> 1.0
  */

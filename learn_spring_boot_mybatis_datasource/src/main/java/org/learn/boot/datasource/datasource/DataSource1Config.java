@@ -4,8 +4,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,8 +25,11 @@ import javax.sql.DataSource;
  */
 @Configuration
 
-@MapperScan(basePackages = "com.base.mapper.test1",sqlSessionTemplateRef = "test1SqlSessionTemplate")
+@MapperScan(basePackages = "org.learn.boot.datasource.mapper.test1", sqlSessionTemplateRef = "test1SqlSessionTemplate")
 public class DataSource1Config {
+
+    @Autowired
+    private DatasourceTest1 datasourceTest1;
 
     /**
      * @MapperScan 该注解指名扫描dao层，并且将dao层注入到指定的sqlSessionTemplate, 所以的@Bean都需要按照命令指定
@@ -36,6 +39,9 @@ public class DataSource1Config {
 
     /**
      * @Description  1、创建dataSource，2、创建SqlSessionFactory ,3、再创建事务 ，4、最后包装到SqlSessionTemplate
+     * 这里注意下 如果使用 yml 文件，那么就不能通过 这种方式来  @ConfigurationProperties(prefix = "spring.datasource.test1") 获取数据源。
+     * 因为在这种方式下 会报错 ，找不到相应的配置。 如果是使用的properties 配置文件那么 就可以使用这种方式。
+     * 如果要使用 yml文件配置 方式，那么需要
      * @param
      * @return javax.sql.DataSource
      * @exception   
@@ -43,10 +49,16 @@ public class DataSource1Config {
      * @Date 17:28 2019/3/24
      **/
     @Bean(name = "test1DataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.test1")
+//    @ConfigurationProperties(prefix = "spring.datasource.test1")
     @Primary
     public DataSource testDateSource(){
-        return DataSourceBuilder.create().build();
+        return  DataSourceBuilder.create().url(datasourceTest1.getJdbcUrl()).
+                username(datasourceTest1.getUsername()).
+                password(datasourceTest1.getPassword()).
+                driverClassName(datasourceTest1.getDriverClassName()).
+                build();
+
+//        return DataSourceBuilder.create().build();
     }
 
     @Bean(name = "test1SqlSessionFactory")

@@ -68,6 +68,49 @@ public class LearnSparingBootRabbitmqApplicationTests {
 		rabbitTemplate.convertAndSend("exchange.direct", "lin.news", new Bank("2324","招商银行"));
 	}
 
+
+	/**
+	 * 2、测试Topic模式
+	 */
+	@Test
+	public void  testTopic(){
+		//Messge需要自己构造一个，定义消息体内容和消息头
+		//rabbitTemplate.send(exchange, routingKey, message);
+
+		// object 默认当成消息体，只需要传入要发送的对象，自动序列化发送给rabbitmq
+		//rabbitTemplate.convertAndSend(exchange, routingKey, message);
+		Map<String, Object> map =new HashMap<>(16);
+		map.put("msg","topic消息测试");
+		map.put("data", Arrays.asList("test",55,true));
+		//如果不进行序列化处理，那么对象会被默认的序列化以后发送出去
+		rabbitTemplate.convertAndSend("exchange.topic", "lin.#", new Bank("777","中国银行"));
+	}
+
+
+	@Test
+	public void  testTopic02(){
+		//Messge需要自己构造一个，定义消息体内容和消息头
+		//rabbitTemplate.send(exchange, routingKey, message);
+
+		// object 默认当成消息体，只需要传入要发送的对象，自动序列化发送给rabbitmq
+		//rabbitTemplate.convertAndSend(exchange, routingKey, message);
+		Map<String, Object> map =new HashMap<>(16);
+		map.put("msg","topic消息测试");
+		map.put("data", Arrays.asList("test",88,true));
+		//如果不进行序列化处理，那么对象会被默认的序列化以后发送出去
+		rabbitTemplate.convertAndSend("exchange.topic", "*liu.news", new Bank("888","建设银行"));
+	}
+
+
+
+	@Test
+	public void testFanout(){
+		rabbitTemplate.convertAndSend("exchange.fanout","liu.news", new Bank("13f3452", "工商银行"));
+	}
+
+
+
+
 	/**
 	 * 接收消息
 	 */
@@ -81,8 +124,5 @@ public class LearnSparingBootRabbitmqApplicationTests {
         //接收消息：{msg=点对点消息测试, data=[test, 123, true]}
 	}
 
-	@Test
-	public void testFanout(){
-		rabbitTemplate.convertAndSend("exchange.fanout","", new Bank("13f3452", "中国银行"));
-	}
+
 }
