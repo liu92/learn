@@ -33,7 +33,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jdk.version>1.8</jdk.version>
 		<spring.version>5.1.6.RELEASE</spring.version>
-		<mysql.version>8.0.11</mysql.version>
+		<mysql.version>8.0.16</mysql.version>
 		<thymeleaf.layout.version>2.4.1</thymeleaf.layout.version>
 		<lombok.version>1.18.2</lombok.version>
 		<drools.version>7.20.0.Final</drools.version>
