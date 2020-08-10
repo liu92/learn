@@ -6,7 +6,11 @@
 		<groupId>org.learn</groupId>
 		<artifactId>learn</artifactId>
 		<version>1.0-SNAPSHOT</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<!--如果 在进行项目install时 ,子模块出现 unknown-version 时，需要relativePath
+		指定父类pom文件地址-->
+		<relativePath> <!-- lookup parent from repository -->
+			../pom.xml
+		</relativePath>
 	</parent>
 	<groupId>org.learn.boot.rocketmq</groupId>
 	<artifactId>learn-spring-boot-rocketmq</artifactId>

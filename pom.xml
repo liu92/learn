@@ -33,7 +33,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jdk.version>1.8</jdk.version>
 		<spring.version>5.1.6.RELEASE</spring.version>
-		<mysql.version>8.0.11</mysql.version>
+		<mysql.version>8.0.17</mysql.version>
 		<thymeleaf.layout.version>2.4.1</thymeleaf.layout.version>
 		<lombok.version>1.18.2</lombok.version>
 		<drools.version>7.20.0.Final</drools.version>
@@ -46,6 +46,7 @@
 		<junit.version>4.12</junit.version>
 		<collections4.version>4.3</collections4.version>
 		<gson.verions>2.6.2</gson.verions>
+		<quartz.version>2.3.2</quartz.version>
 
 		<!--<thymeleaf-extras-springsecurity.version>3.0.4.RELEASE</thymeleaf-extras-springsecurity.version>-->
 	</properties>
@@ -170,12 +171,12 @@
 		本文列出了这种高性能的驱动但是没有使用，
 		spring-data-neo4j支持多种bolt，http（s）俩种协议操作。
 		默认使用http（s）协议驱动 -->
-		<dependency>
-			<groupId>org.neo4j</groupId>
-			<artifactId>neo4j-ogm-http-driver</artifactId>
-			<version>3.1.8</version>
-			<scope>runtime</scope>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.neo4j</groupId>-->
+<!--			<artifactId>neo4j-ogm-http-driver</artifactId>-->
+<!--			<version>3.1.8</version>-->
+<!--			<scope>runtime</scope>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>org.neo4j</groupId>
 			<artifactId>neo4j-ogm-embedded-driver</artifactId>
@@ -210,6 +211,19 @@
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 			<version>${gson.verions}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz-jobs</artifactId>
+			<version>2.3.2</version>
 		</dependency>
 
 	</dependencies>
