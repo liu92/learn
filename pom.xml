@@ -43,7 +43,7 @@
 		<servlet.version>4.0.1</servlet.version>
 		<javax.persistence.version>2.2</javax.persistence.version>
 		<spring.data.jpa.version>2.1.8.RELEASE</spring.data.jpa.version>
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13.1</junit.version>
 		<collections4.version>4.3</collections4.version>
 		<gson.verions>2.6.2</gson.verions>
 		<quartz.version>2.3.2</quartz.version>
