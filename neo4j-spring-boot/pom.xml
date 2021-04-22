@@ -3,12 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.learn</groupId>
 		<artifactId>learn</artifactId>
+		<groupId>org.learn</groupId>
 		<version>1.0-SNAPSHOT</version>
-		<relativePath> <!-- lookup parent from repository -->
-			../pom.xml
-		</relativePath>
 	</parent>
 
 	<artifactId>neo4j-spring-boot</artifactId>
@@ -90,8 +87,6 @@
 		<dependency>
 			<groupId>org.neo4j</groupId>
 			<artifactId>neo4j</artifactId>
-			<version>3.5.3</version>
-			<scope>runtime</scope>
 		</dependency>
 
 		<dependency>
@@ -111,7 +106,7 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-collections4</artifactId>
-			<version>4.3</version>
+			<version>4.4</version>
 		</dependency>
 
 		<dependency>

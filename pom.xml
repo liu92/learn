@@ -9,45 +9,64 @@
 	<name>learn</name>
 
 	<modules>
+		<module>learn-spring-boot-actuator</module>
+		<module>learn-spring-boot-cache</module>
+		<module>learn-spring-boot-deploy</module>
+		<module>learn-spring-boot-dubbo-consumer</module>
+		<module>learn-spring-boot-dubbo-provider</module>
+		<module>learn-spring-boot-elastic</module>
+		<module>learn-spring-boot-eureka</module>
+		<module>learn-spring-boot-kafka</module>
+		<module>learn-spring-boot-lucene</module>
+		<module>learn-spring-boot-rocketmq</module>
+		<module>learn-spring-boot-security</module>
+		<module>learn-spring-boot-task</module>
+		<module>learn-spring-cloud-consumer</module>
+		<module>learn-spring-cloud-provider</module>
+		<module>learn_new_jdk</module>
+		<module>learn_sparing_boot_rabbitmq</module>
 		<module>learn_spring_boot_demo</module>
 		<module>learn_spring_boot_drools</module>
-		<module>learn_spring_boot_mybatis_demo</module>
 		<module>learn_spring_boot_mybatis_datasource</module>
+		<module>learn_spring_boot_mybatis_demo</module>
+
 		<module>neo4j-spring-boot</module>
-		<module>learn_sparing_boot_rabbitmq</module>
-		<module>learn-spring-boot-cache</module>
-		<module>learn-spring-boot-elastic</module>
-        <module>learn-spring-boot-security</module>
-		<module>learn-spring-boot-rocketmq</module>
-		<module>learn-spring-boot-kafka</module>
+
+
+
+
+
 	</modules>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.4.RELEASE</version>
-	</parent>
+<!--	<parent>-->
+<!--		<groupId>org.springframework.boot</groupId>-->
+<!--		<artifactId>spring-boot-starter-parent</artifactId>-->
+<!--		<version>2.1.4.RELEASE</version>-->
+<!--	</parent>-->
 
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jdk.version>1.8</jdk.version>
-		<spring.version>5.1.6.RELEASE</spring.version>
+		<spring.version>5.3.5</spring.version>
 		<mysql.version>8.0.17</mysql.version>
-		<thymeleaf.layout.version>2.4.1</thymeleaf.layout.version>
+		<thymeleaf.layout.version>2.5.2</thymeleaf.layout.version>
 		<lombok.version>1.18.2</lombok.version>
-		<drools.version>7.20.0.Final</drools.version>
-		<kie.version>7.20.0.Final</kie.version>
-		<neo4j.version>1.7.2</neo4j.version>
+		<drools.version>7.52.0.Final</drools.version>
+		<kie.version>7.52.0.Final</kie.version>
+		<neo4j.java.version>4.2.4</neo4j.java.version>
+		<neo4j.version>4.2.4</neo4j.version>
+		<neo4j.ogm.version>3.2.21</neo4j.ogm.version>
 		<commons.lang3.version>3.9</commons.lang3.version>
 		<servlet.version>4.0.1</servlet.version>
 		<javax.persistence.version>2.2</javax.persistence.version>
-		<spring.data.jpa.version>2.1.8.RELEASE</spring.data.jpa.version>
+		<spring.data.jpa.version>2.4.7</spring.data.jpa.version>
 		<junit.version>4.12</junit.version>
-		<collections4.version>4.3</collections4.version>
+		<spring.boot.version>2.4.1</spring.boot.version>
+		<collections4.version>4.4</collections4.version>
 		<gson.verions>2.6.2</gson.verions>
 		<quartz.version>2.3.2</quartz.version>
-
+		<poi.version>4.1.2</poi.version>
 		<!--<thymeleaf-extras-springsecurity.version>3.0.4.RELEASE</thymeleaf-extras-springsecurity.version>-->
 	</properties>
 
@@ -59,14 +78,14 @@
      主pom中把依赖通过<dependecyManagement>引起来，表示子pom可能会用到的jar包依赖，
      子pom如果需要引用该jar包，则直接引用即可！不需要加入<version>，便于统一管理。此外也可以加入仅在子pom中用到的jar包-->
 	<dependencyManagement>
-	<dependencies>
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.boot</groupId>-->
-			<!--<artifactId>spring-boot-dependencies</artifactId>-->
-			<!--<version>2.1.4.RELEASE</version>-->
-			<!--<type>pom</type>-->
-			<!--<scope>import</scope>-->
-		<!--</dependency>-->
+	 <dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-dependencies</artifactId>
+			<version>2.4.1</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
 
 
 		<!--不使用parent方式进行依赖,需要scope和type设置-->
@@ -151,21 +170,19 @@
 		<dependency>
 			<groupId>org.neo4j.driver</groupId>
 			<artifactId>neo4j-java-driver</artifactId>
-			<version>${neo4j.version}</version>
+			<version>${neo4j.java.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.neo4j</groupId>
 			<artifactId>neo4j</artifactId>
-			<version>3.5.3</version>
-			<scope>runtime</scope>
+			<version>${neo4j.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.neo4j</groupId>
 			<artifactId>neo4j-ogm-core</artifactId>
-			<version>3.1.8</version>
-			<scope>compile</scope>
+			<version>${neo4j.ogm.version}</version>
 		</dependency>
 		<!--neo4j-ogm-bolt-driver是二进制驱动，
 		本文列出了这种高性能的驱动但是没有使用，
@@ -213,20 +230,14 @@
 			<version>${gson.verions}</version>
 		</dependency>
 
-
 		<dependency>
-			<groupId>org.quartz-scheduler</groupId>
-			<artifactId>quartz</artifactId>
-			<version>2.3.2</version>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${poi.version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.quartz-scheduler</groupId>
-			<artifactId>quartz-jobs</artifactId>
-			<version>2.3.2</version>
-		</dependency>
 
-	</dependencies>
+	 </dependencies>
 	</dependencyManagement>
 
 	<!--除了jar包依赖，插件也可以通过这样的方式进行管理-->

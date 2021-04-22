@@ -79,6 +79,7 @@ public class RedisDistributedLock implements DistributedLock {
         }finally {
             if(uuid.equals(stringRedisTemplate.opsForValue().get(lockKey))){
                 /**
+                 *
                  * 释放锁, 为什么要使用uuid做判断呢？ 因为在多线程情况下，会出现锁失效的情况，比如说有三个线程
                  // 第一个线程执行总共需要15s，第二个线程执行需要 8s , 第三个先执行需要 5s
                  // 如果第一个现在在执行到解锁操作是，如果不去判断，并且第一个线程的执行到10s 时锁已经过期了，
