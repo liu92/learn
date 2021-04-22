@@ -61,7 +61,7 @@
 		<servlet.version>4.0.1</servlet.version>
 		<javax.persistence.version>2.2</javax.persistence.version>
 		<spring.data.jpa.version>2.4.7</spring.data.jpa.version>
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13.2</junit.version>
 		<spring.boot.version>2.4.1</spring.boot.version>
 		<collections4.version>4.4</collections4.version>
 		<gson.verions>2.6.2</gson.verions>
