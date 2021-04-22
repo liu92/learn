@@ -1,0 +1,4 @@
+org\learn\boot\rocketmq\controller\DemoRocketController.class
+org\learn\boot\rocketmq\LearnSpringBootRocketmqApplication.class
+org\learn\boot\rocketmq\server\RocketMqServer.class
+org\learn\boot\rocketmq\client\RocketMqClient.class
