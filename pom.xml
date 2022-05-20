@@ -64,7 +64,7 @@
 		<junit.version>4.13.2</junit.version>
 		<spring.boot.version>2.4.1</spring.boot.version>
 		<collections4.version>4.4</collections4.version>
-		<gson.verions>2.6.2</gson.verions>
+		<gson.verions>2.8.9</gson.verions>
 		<quartz.version>2.3.2</quartz.version>
 		<poi.version>4.1.2</poi.version>
 		<!--<thymeleaf-extras-springsecurity.version>3.0.4.RELEASE</thymeleaf-extras-springsecurity.version>-->
